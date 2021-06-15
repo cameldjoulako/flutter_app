@@ -17,25 +17,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         //Creation d'une Stack
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: 250,
-              height: 250,
-              color: Colors.green,
-            ),
-            Container(
-              width: 150,
-              height: 150,
-              color: Colors.red,
-            ),
-            Container(
-              width: 90,
-              height: 90,
-              color: Colors.yellow,
-            ),
-          ],
+        child: Row(
+          children: [],
         ),
       ),
       floatingActionButton: FloatingActionButton(
