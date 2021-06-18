@@ -14,51 +14,35 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Learn Flutter with Homedeve.com"),
       ),
-      body: CustumCheckBox(),
-    );
-  }
-}
-
-class CustumCheckBox extends StatefulWidget {
-  const CustumCheckBox({Key? key}) : super(key: key);
-
-  @override
-  _CustumCheckBoxState createState() => _CustumCheckBoxState();
-}
-
-class _CustumCheckBoxState extends State<CustumCheckBox> {
-  var isChecked;
-  var msg;
-
-  initState() {
-    super.initState();
-
-    isChecked = false;
-    msg = "Non Activé";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-          value: isChecked,
-          onChanged: (newValue) {
-            setState(() {
-              isChecked = newValue;
-              if (isChecked) {
-                msg = "Activé";
-              } else {
-                msg = "Non activé";
-              }
-            });
-          },
+      body: Center(
+        child: Column(
+          children: [
+            TextButton(
+              //FlatButton dans l'ancienne version de flutter
+              onPressed: () => print('clic'),
+              child: Text('Cliquez ici'),
+            ),
+            OutlinedButton(
+              //OutlineButton
+              onPressed: () => print('clic'),
+              child: Text('Cliquez ici'),
+            ),
+            ElevatedButton(
+              //RaisedButton
+              onPressed: () => print('clic'),
+              child: Text('Cliquez ici'),
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.all(10),
+              ),
+            ),
+            GestureDetector(
+              child: Text("Gestion d'évenement"),
+              onTap: () => print("clic détecté"),
+              onDoubleTap: () => print("double clic"),
+            ),
+          ],
         ),
-        Text(
-          msg,
-          style: TextStyle(fontSize: 35),
-        )
-      ],
+      ),
     );
   }
 }
